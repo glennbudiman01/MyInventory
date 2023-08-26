@@ -1,0 +1,41 @@
+﻿@page
+@model MyInventory.Pages.Inventories.IndexModel
+@{
+}
+
+<br />
+<h2>List of Inventory</h2>
+<a class="btn btn-primary btn-sm" href="/Inventories/Create">New Item</a>
+<table class="table table-warning">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Stock</th>
+            <th>Description</th>
+            <th>Created At</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var inventory in Model.listinventories)
+        {
+
+
+            <tr>
+                <td>@inventory.id</td>
+                <td>@inventory.name</td>
+                <td>@inventory.type</td>
+                <td>@inventory.stock</td>
+                <td>@inventory.description</td>
+                <td>@inventory.created_at</td>
+                <td>
+                    <a class="btn-primary btn-sm" href="/Inventories/Edit?id=@inventory.id">Edit</a>
+                    <a class="btn-danger btn-sm" href="/Inventories/Delete?id=@inventory.id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
